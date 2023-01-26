@@ -1,0 +1,25 @@
+2.
+a) Index auf namen, da es da wohl die meisten Tupel gibt. Es wird nicht mehr berufe als namen geben.
+b) CREATE INDEX AnrIndex ON Pers(anr);
+c) Alle verändernden Befehle: Update/Delete/Insert
+d) Ein Index auf den anderen Elementen macht keine große Verschnellerung. Programmierer wird häufiger vorkommen, Junghans einmalig und Erlangen auch übersichtlich oft.
+
+Datenbank macht erst die Selektion im Where und joined danach
+
+3.
+Der Index wurde auf die regulären Werte definiert und kann somit für die Abfrage in UPPERCASE nicht verwendet werden. [wrong]
+
+a) Der Index wurde als Datum Index umgesetzt. Durch die Umwandlung und Abfrage des Datums als Char kann dieser Index nicht verwendet werden.
+Indem die Abfrage in einer Form erfolgt, in der die Datenbank auf ihre optimierten Mechanismen zurückgreifen kann, kann diese Abfrage verschnellert werden. -> Nutze ToDate für den Vergleich.
+
+toDate(string, format[optional])
+(folie 37)
+Where eindat >= TO_DATE('01.01.1994', 'dd.mm.yyyy') And eindat < TO_DATE(('01.01.1995', 'dd.mm.yyyy')
+
+
+b)
+CREATE INDEX Eintrittsindex ON Pers(eindat);
+
+Select UPPER(name), UPPER(beruf)
+FROM Pers
+WHERE ToDate('YY') = '94'

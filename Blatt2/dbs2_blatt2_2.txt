@@ -1,0 +1,2 @@
+vorlesungsname:
+DBSYS' OR matrikelnummer='123999' AND vorlesungsname='DBSYS
